@@ -7,7 +7,7 @@ Disclaimer: This project was created for personal use, and I decided to share it
 With this HTML file, you can edit hack ROM save files. Currently supported:
  * Odyssey (ITA/ENG)
  * Unbound
- * SoulSilver (or SoulGold)
+ * SoulGold
  * Emerald Mini
  * Radical Red
  * Super Mariomon
