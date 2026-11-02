@@ -11,7 +11,6 @@ With this HTML file, you can edit hack ROM save files. Currently supported:
 Additionally, it supports PokéBank. You can transfer Pokémon inside the file and retrieve them whenever you want.
 
 Info patch:
-
 UNBOUND
 • Brings back local trading (link cable) at the Cable Club on the Pokémon Center's second floor: the Trade option works again and the Cable Club rooms (Trade Center and Colosseum) are restored.
 
@@ -22,6 +21,7 @@ SUPER MARIOMON
 • Fixed Giga Bowser's sprite while in battle.
 
 
+
 ODYSSEY
 • Added the portable PC. When you interact with the PC you will get an item: the Portable PC. It will be in the bag, among the basic items.
 
@@ -29,7 +29,6 @@ ODYSSEY
 
 
 SOULGOLD
-
 • Added the portable PC. When you interact with the PC you will get an item: the Portable PC. It will be in the bag, among the basic items.
 
 
