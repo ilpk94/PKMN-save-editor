@@ -32,3 +32,14 @@ If you use Poké Bank, remember to download the new updated HTML file and replac
 
 Make sure to always back up your save files and games if you apply patches.
 All changes take place locally. The file also works offline.
+
+
+
+<img width="966" height="1208" alt="Screenshot_20261102_192441_Brave" src="https://github.com/user-attachments/assets/1febdc7a-f39a-4453-b8c1-3762eb857702" />
+
+
+<img width="1080" height="726" alt="Screenshot_20261102_193725_RetroArch" src="https://github.com/user-attachments/assets/28173eb3-d27a-4d53-9643-6e9d4658772b" />
+
+
+<img width="1080" height="558" alt="Screenshot_20261102_192609_Brave" src="https://github.com/user-attachments/assets/76014f2d-17f2-4e01-afd4-333f576a8731" />
+
