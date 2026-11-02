@@ -16,6 +16,23 @@ In the file, Pokémon that evolve through trading can be evolved by simulating t
 
 Additionally, it supports PokéBank. You can transfer Pokémon inside the file and retrieve them whenever you want.
 
+
+Currently, it should be possible to add any GBA ROM hack. The file will guide you step by step. At the end, it will create a .json file and generate some text. Then open Claude. Upload the following files:
+>  * the zipped game
+>  * the save file
+>  * the game cover art
+>  * the .json file
+>    And paste the text that the file generated."
+> 
+Alternative options (more concise/technical):
+> "Right now, adding any GBA ROM hack should be supported. The file will walk you through it step by step. Upon completion, it will output a .json file and generate a text block. Next, open Claude and upload:
+>  * The zipped game file
+>  * The save file
+>  * The game cover art
+>  * The .json file
+>    Finally, paste the generated text into the chat."
+
+
 Info patch:
 UNBOUND
 • Brings back local trading (link cable) at the Cable Club on the Pokémon Center's second floor: the Trade option works again and the Cable Club rooms (Trade Center and Colosseum) are restored.
