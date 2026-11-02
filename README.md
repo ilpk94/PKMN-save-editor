@@ -1,4 +1,5 @@
-# PKMN-save-editor 🇮🇹 🇬🇧 made with Claude
+# PKMN-save-editor 🇮🇹 🇬🇧
+made with Claude
 With this HTML file, you can edit hack ROM save files. Currently supported:
  * Odyssey (ITA/ENG)
  * Unbound
@@ -24,8 +25,10 @@ ODYSSEY
 SOULGOLD
 • Added the portable PC. When you interact with the PC you will get an item: the Portable PC. It will be in the bag, among the basic items.
 
+
 Additionally, it supports PokéBank. You can transfer Pokémon inside the file and retrieve them whenever you want.
 
+If you use Poké Bank, remember to download the new updated HTML file and replace it with the one you have. The Pokémon will be inside the new file.
 
 Make sure to always back up your save files and games if you apply patches.
 All changes take place locally. The file also works offline.
