@@ -22,15 +22,7 @@ Currently, it should be possible to add any GBA ROM hack. The file will guide yo
 >  * the save file
 >  * the game cover art
 >  * the .json file
->    And paste the text that the file generated."
-> 
-Alternative options (more concise/technical):
-> "Right now, adding any GBA ROM hack should be supported. The file will walk you through it step by step. Upon completion, it will output a .json file and generate a text block. Next, open Claude and upload:
->  * The zipped game file
->  * The save file
->  * The game cover art
->  * The .json file
->    Finally, paste the generated text into the chat."
+>    And paste the text that the file generated.
 
 
 Info patch:
