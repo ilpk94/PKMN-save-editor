@@ -3,6 +3,8 @@ made with Claude
 
 Disclaimer: This project was created for personal use, and I decided to share it. I'm not a programmer, so I used Claude. I hope it's useful to someone, just like it has been for me.
 
+Known issue: When creating a Pokémon, its moves will not have the maximum number of PP
+
 
 With this HTML file, you can edit hack ROM save files. Currently supported:
  * Odyssey (ITA/ENG)
