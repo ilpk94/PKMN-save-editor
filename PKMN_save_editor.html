@@ -64,6 +64,8 @@ nav,.bar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}small{opacity:.7}#sug
 <datalist id="dsp"></datalist><datalist id="dit"></datalist><datalist id="dmv"></datalist>
 <script id="bankdata" type="application/json">{"rev":1,"g":{}}</script>
 <script>
+/* SNAP: copia fedele del documento prima che lo script modifichi il DOM; serve a ksrc() quando il file non si può rileggere (file://, content://, mobile) */
+var SRC0='';try{SRC0='<!doctype html>\n'+document.documentElement.outerHTML}catch(e){}
 /* =====================================================================
    ISTRUZIONI PER FUTURI AGGIORNAMENTI / INSTRUCTIONS FOR FUTURE UPDATES
    (per chi modifica questo file, persone o assistenti AI / for anyone editing this file, humans or AI assistants)
@@ -568,6 +570,7 @@ async function kdo(){if(!FH)return;
  catch(e){kstate='err';kStatus(t('k_err',e.message||e))}}
 function kSave(){KD=true;kStatus();KQ=KQ.then(kdo).catch(()=>{});return KQ}
 async function ksrc(){if(FH)try{return await(await FH.getFile()).text()}catch(e){}
+ if(SRC0.includes(KO))return SRC0;
  try{const r=await fetch(location.href);if(r.ok){const x=await r.text();if(x.includes(KO))return x}}catch(e){}
  return await new Promise((ok,no)=>{const i=document.createElement('input');i.type='file';i.accept='.html,.htm';i.onchange=async()=>{const f=i.files[0];f?ok(await f.text()):no(new Error('-'))};i.click()})}
 $('#kdlh').onclick=async()=>{try{const src=await ksrc();if(!src.includes(KO))return alert(t('k_bad'));BANK.rev=Math.max(krev(src),KB)+1;const out=kbuild(src);
