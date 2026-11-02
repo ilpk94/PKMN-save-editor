@@ -12,6 +12,8 @@ With this HTML file, you can edit hack ROM save files. Currently supported:
  * Radical Red
  * Super Mariomon
 
+In the file, Pokémon that evolve through trading can be evolved by simulating the trade.
+
 Additionally, it supports PokéBank. You can transfer Pokémon inside the file and retrieve them whenever you want.
 
 Info patch:
