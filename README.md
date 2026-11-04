@@ -20,11 +20,9 @@ Additionally, it supports PokéBank. You can transfer Pokémon inside the file a
 
 
 Currently, it should be possible to add any GBA ROM hack. The file will guide you step by step. At the end, it will create a .json file and generate some text. Then open Claude. Upload the following files:
->  * the zipped game
->  * the save file
->  * the game cover art
->  * the .json file
->    And paste the text that the file generated.
+>  * Send the HTML file
+>  * Send the zip file containing the game, the save file, and the covers (optional)
+>  * Copy the prompt
 
 
 Info patch:
