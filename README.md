@@ -7,12 +7,16 @@ Known issue: When creating a Pokémon, its moves will not have the maximum numbe
 
 
 With this HTML file, you can edit hack ROM save files. Currently supported:
- * Odyssey (ITA/ENG)
- * Unbound
- * SoulGold
+ * Odyssey (ITA v4.1.4 - ENG v4.1.1)
+ * Unbound (v2.1.1.1)
+ * Unbound Battle Frontier (v2.0.1)
+ * SoulGold (v1.0.4.5)
  * Emerald Mini
- * Radical Red
- * Super Mariomon
+ * Radical Red (v4.1)
+ * Super Mariomon (v1.5.2-Anniversary)
+ * Clover(v1.3.3)
+ * Emerald Seaglass (v3.0)
+ * Elite Redux (v2.65.4.1b)
 
 In the file, Pokémon that evolve through trading can be evolved by simulating the trade.
 
