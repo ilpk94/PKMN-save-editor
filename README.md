@@ -11,10 +11,10 @@ With this HTML file, you can edit hack ROM save files. Currently supported:
  * Unbound (v2.1.1.1)
  * Unbound Battle Frontier (v2.0.1)
  * SoulGold (v1.0.4.5)
- * Emerald Mini
+ * Emerald Mini (v1.2.2)
  * Radical Red (v4.1)
  * Super Mariomon (v1.5.2-Anniversary)
- * Clover(v1.3.3)
+ * Clover (v1.3.3)
  * Emerald Seaglass (v3.0)
  * Elite Redux (v2.65.4.1b)
 
