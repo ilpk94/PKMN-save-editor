@@ -23,10 +23,10 @@ In the file, Pokémon that evolve through trading can be evolved by simulating t
 Additionally, it supports PokéBank. You can transfer Pokémon inside the file and retrieve them whenever you want.
 
 
-Currently, it should be possible to add any GBA ROM hack. The file will guide you step by step. At the end, it will create a .json file and generate some text. Then open Claude. Upload the following files:
+Currently, it should be possible to add any GBA ROM hack. The file will guide you step by step. At the end, it will generate a prompt. Then open Claude. Upload the following files:
 >  * Send the HTML file
 >  * Send the zip file containing the game, the save file, and the covers (optional)
->  * Copy the prompt
+>  * Paste the prompt
 
 
 Info patch:
