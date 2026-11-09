@@ -17,6 +17,7 @@ With this HTML file, you can edit hack ROM save files. Currently supported:
  * Clover (v1.3.3)
  * Emerald Seaglass (v3.0)
  * Elite Redux (v2.65.4.1b)
+ * Lazarus (v2.0)
 
 In the file, Pokémon that evolve through trading can be evolved by simulating the trade.
 
