@@ -116,6 +116,34 @@ details.gi[open] .gx{transform:rotate(225deg);margin:4px 4px 0 0;border-color:va
 .gb .card{flex:1 1 100%;margin:0;font-size:14px}
 .sb{margin-top:20px}
 @media(max-width:480px){.gb img{width:96px}.sb button{flex:1 1 100%}}
+
+/* ===== Rifinitura UI v2 / UI polish v2 ===== */
+:root{--ac2:#ff9a3c;--gl:color-mix(in srgb,var(--bg) 80%,transparent)}
+h1{background:linear-gradient(90deg,var(--fg),var(--ac));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+select{appearance:none;-webkit-appearance:none;padding-right:32px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%239a9aa8' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;text-overflow:ellipsis}
+button{background:var(--bg);box-shadow:0 1px 0 color-mix(in srgb,var(--bd) 60%,transparent)}
+button.pri{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-color:transparent;text-shadow:0 1px 1px rgba(0,0,0,.18)}
+button.ico{min-width:42px;padding:0;font-size:16px;flex:none}
+.bxr{display:flex;gap:8px;margin-bottom:8px}.bxr select{flex:1;min-width:0;font-weight:600}
+.bxed{display:flex;gap:6px;margin:0 0 8px;padding:8px;border-radius:var(--r);background:color-mix(in srgb,var(--ac) 9%,var(--bg));border:1px solid color-mix(in srgb,var(--ac) 40%,var(--bd));animation:pop .15s ease-out}
+.bxed input{flex:1;min-width:0}.bxed button{min-width:42px;padding:0}
+@keyframes pop{from{opacity:0;transform:translateY(-4px)}}
+nav{background:var(--card);padding:4px;border-radius:14px;border:1px solid var(--bd);gap:4px}
+nav button{flex:1 1 auto;background:transparent;border-color:transparent;box-shadow:none;border-radius:10px;color:var(--mut)}
+nav button.on{background:var(--bg);color:var(--fg);border-color:var(--bd);box-shadow:var(--sh);outline:0}
+nav button.on::after{content:"";display:block;height:2px;margin:3px auto 0;width:18px;border-radius:2px;background:var(--ac)}
+#tb{background:var(--gl);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--bd);border-radius:var(--r);padding:8px;gap:8px;position:sticky;top:6px;z-index:6;box-shadow:var(--sh)}
+#tb select{flex:1 1 140px;min-width:0}
+#tb #selb.on{background:var(--ac);color:#fff;border-color:transparent;outline:0}
+#selx:not([hidden]){display:flex!important;flex:1 1 100%;flex-wrap:wrap;gap:6px;padding-top:8px;border-top:1px dashed var(--bd)}
+#selx select{flex:1 1 130px}
+#shy{background:linear-gradient(135deg,#ffd75e,#ffb020);color:#4a3200;border-color:transparent}
+#sc:not(:empty){background:color-mix(in srgb,var(--ac) 14%,transparent);padding:4px 11px;border-radius:99px;font-size:13px;font-weight:600}
+.s button,.kg button{background:var(--bg);box-shadow:none;border-color:color-mix(in srgb,var(--bd) 70%,transparent)}
+.s button:hover:not(:disabled),.kg button:hover:not(:disabled){transform:translateY(-2px);box-shadow:var(--sh)}
+.s button.on,.kg button.on{background:color-mix(in srgb,var(--ac) 16%,var(--bg));border-color:var(--ac);box-shadow:0 0 0 2px color-mix(in srgb,var(--ac) 40%,transparent);outline:0}
+.kw>div:not(.kc){background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:12px;box-shadow:var(--sh)}
+.bar{gap:8px}
 </style></head><body>
 <h1>Pokémon Hack · Save Editor</h1>
 <div id="lang" class="card"><b>Lingua · Language</b><div class="g"><button data-l="it" style="display:flex;flex-direction:column;align-items:center;gap:6px"><svg viewBox="0 0 3 2" width="36" height="24"><rect width="1" height="2" fill="#009246"></rect><rect x="1" width="1" height="2" fill="#fff"></rect><rect x="2" width="1" height="2" fill="#ce2b37"></rect></svg><b>Italiano</b></button><button data-l="en" style="display:flex;flex-direction:column;align-items:center;gap:6px"><svg viewBox="0 0 60 30" width="48" height="24"><clipPath id="uk"><path d="M0 0v30h60V0z"></path></clipPath><path d="M0 0v30h60V0z" fill="#012169"></path><path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6" clip-path="url(#uk)"></path><path d="M0 0l60 30M60 0L0 30" stroke="#C8102E" stroke-width="3" clip-path="url(#uk)"></path><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"></path><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"></path></svg><b>English</b></button></div></div>
@@ -129,7 +157,7 @@ details.gi[open] .gx{transform:rotate(225deg);margin:4px 4px 0 0;border-color:va
 <label><span data-i="name">Nome</span><input id="tn" maxlength="7"></label><label><span data-i="tid">ID allenatore</span><input id="ti" type="number" min="0" max="65535"></label>
 <label><span data-i="sid">ID segreto</span><input id="ts" type="number" min="0" max="65535"></label><label><span data-i="money">Soldi</span><input id="tm" type="number" min="0" max="999999"></label>
 <label><span data-i="hours">Ore</span><input id="th" type="number" min="0" max="999"></label><label><span data-i="mins">Minuti</span><input id="tmi" type="number" min="0" max="59"></label></div></section>
-<section id="p"><select id="bx"></select><div id="tb"><button id="selb" data-i="sel">Seleziona</button><select id="tf"></select><span id="sc"></span><span id="selx" hidden="" style="display:contents"><button id="sa" data-i="sel_all">Tutti</button><button id="sn" data-i="sel_none">Nessuno</button><select id="mb"></select><button id="mv" class="pri" data-i="move">Sposta</button><button id="cpm" class="pri" data-i="cpy_m">📋 Copia</button><button id="rel" data-i="release">Libera</button></span></div><b id="ptl" data-i="party">Squadra</b><div id="pty" class="s card"></div><div id="pwarn2" class="warn" data-i="pwarn" hidden=""></div><div id="gr" class="s card"></div>
+<section id="p"><div class="bxr"><select id="bx"></select><button id="bxe" class="ico" title="Rinomina box · Rename box">✏️</button></div><div id="bxed" class="bxed" hidden><input id="bxi" autocomplete="off" aria-label="Nome box"><button id="bxok" class="pri">✓</button><button id="bxno">✕</button></div><div id="tb"><button id="selb" data-i="sel">Seleziona</button><select id="tf"></select><span id="sc"></span><span id="selx" hidden="" style="display:contents"><button id="sa" data-i="sel_all">Tutti</button><button id="sn" data-i="sel_none">Nessuno</button><select id="mb"></select><button id="mv" class="pri" data-i="move">Sposta</button><button id="shy" data-i="mk_sh">✨ Shiny</button><button id="nsh" data-i="mk_ns">Non shiny</button><button id="cpm" class="pri" data-i="cpy_m">📋 Copia</button><button id="rel" data-i="release">Libera</button></span></div><b id="ptl" data-i="party">Squadra</b><div id="pty" class="s card"></div><div id="pwarn2" class="warn" data-i="pwarn" hidden=""></div><div id="gr" class="s card"></div>
 <div id="form" class="card" hidden="">
 <img id="fpic" hidden="" alt="" style="display:block;margin:0 auto 8px;width:128px;height:128px;image-rendering:pixelated">
 <details id="imp" class="card"><summary data-i="imp_t">Importa (formato Showdown)</summary><textarea id="imptx" rows="9" style="width:100%" placeholder="Charizard @ Charizardite X
@@ -158,7 +186,7 @@ Jolly Nature
 <section id="k" hidden=""><div class="card"><b data-i="k_title">PokéBanca</b><br><small id="ksm"></small><div class="bar"><button id="klink" data-i="k_link">Collega questo file HTML</button><button id="kdlh" data-i="k_dlh">Scarica HTML aggiornato</button></div></div>
 <div class="kw"><div><b data-i="k_save">Salvataggio</b><br><select id="kbs"></select><div class="bar" style="margin:6px 0 0"><button id="ksa" data-i="sel_all">Tutti</button><button id="ksn" data-i="sel_none">Nessuno</button></div><div id="kgs" class="kg"></div></div>
 <div class="kc"><button id="kdep" class="pri"></button><button id="kwd" class="pri"></button></div>
-<div><b data-i="k_bank">PokéBanca (100 box)</b><br><div class="bar" style="margin:0;flex-wrap:nowrap"><button id="kpv">◀</button><select id="kbb" style="flex:1;min-width:0"></select><button id="knx">▶</button></div><div class="bar" style="margin:6px 0 0"><button id="kta" data-i="sel_all">Tutti</button><button id="ktn" data-i="sel_none">Nessuno</button><button id="krel" data-i="release">Libera</button></div><div id="kgb" class="kg"></div></div></div>
+<div><b data-i="k_bank">PokéBanca (100 box)</b><br><div class="bar" style="margin:0;flex-wrap:nowrap"><button id="kpv">◀</button><select id="kbb" style="flex:1;min-width:0"></select><button id="knx">▶</button><button id="kbe" class="ico" title="Rinomina box · Rename box">✏️</button></div><div id="kbed" class="bxed" hidden><input id="kbi" autocomplete="off" aria-label="Nome box"><button id="kbok" class="pri">✓</button><button id="kbno">✕</button></div><div class="bar" style="margin:6px 0 0"><button id="kta" data-i="sel_all">Tutti</button><button id="ktn" data-i="sel_none">Nessuno</button><button id="krel" data-i="release">Libera</button></div><div id="kgb" class="kg"></div></div></div>
 <div id="kinf" class="card" hidden=""></div>
 <p><small id="kmsg"></small></p></section>
 </div>
@@ -273,7 +301,7 @@ metloc:'Luogo d’incontro (opzionale)',ml_ph:'— Invariato —',ml_tr:'Scambio
 species:'Specie',sp_ph:'Scrivi il nome…',nick:'Soprannome',item:'Strumento',exp:'Esperienza',lvl:'Livello (squadra)',abil:'Abilità',nature:'Natura',moves:'Mosse',mv_ph:'Mossa',
 ivs:'IV (PS, Att, Dif, AtS, DfS, Vel)',evs:'EV (PS, Att, Dif, AtS, DfS, Vel)',apply:'Applica',del:'Elimina',pwarn:'⚠ Pokémon in squadra: dopo averlo modificato, prima di usarlo in gioco è consigliato depositarlo nel PC (e poi ritirarlo), così il gioco ricalcola le statistiche.',
 search_ph:'Cerca per nome, ID o abilità…',onlyfk:'Solo fakemon',nob:'Lo zaino di questo gioco non è ancora mappato in modo affidabile, quindi per ora non lo modifico.',add:'+ Aggiungi strumento',
-party:'Squadra',choose:'Scegli file',lvb:'Livello',ev_left:'EV disponibili:',hp_t:'Tipo di Introforza',cancel:'Annulla',pinfo:'Info patch',pdl:'Scarica patch',sel:'Seleziona',sel_all:'Tutti',sel_none:'Nessuno',move:'Sposta nel box',all_types:'Tutti i tipi',moved:'Spostati:',no_room:'Spazio insufficiente nel box di destinazione',add_party:'+ Aggiungi in squadra',party_full:'Squadra al completo (6/6): elimina un Pokémon per fare spazio',note_n:'Nuovo Pokémon in squadra: le statistiche sono provvisorie. Depositalo nel PC e ritiralo in gioco per ricalcolarle.',neutral:'neutra',
+party:'Squadra',choose:'Scegli file',lvb:'Livello',ev_left:'EV disponibili:',hp_t:'Tipo di Introforza',cancel:'Annulla',pinfo:'Info patch',pdl:'Scarica patch',sel:'Seleziona',sel_all:'Tutti',sel_none:'Nessuno',mk_sh:'✨ Shiny',mk_ns:'Non shiny',sh_done:'Shiny: {0} modificati, {1} già a posto, {2} non riusciti',move:'Sposta nel box',all_types:'Tutti i tipi',moved:'Spostati:',no_room:'Spazio insufficiente nel box di destinazione',add_party:'+ Aggiungi in squadra',party_full:'Squadra al completo (6/6): elimina un Pokémon per fare spazio',note_n:'Nuovo Pokémon in squadra: le statistiche sono provvisorie. Depositalo nel PC e ritiralo in gioco per ricalcolarle.',neutral:'neutra',
 cpy_m:'📋 Copia',cpy_n:'Copiati {0} Pokémon nel box {1}.',cpy:'📋 Copia nel box',cpy_ok:'Copiato nel box {0}, slot {1}.',rst:'↩ Ripristina statistiche normali',rst_ok:'Statistiche ripristinate (calcolate da specie, livello, IV, EV e natura; PS al massimo).',cheat:'Baro: tutte le statistiche a 999 (solo squadra)',cheat_h:'Opzione volontaria: scrive 999 in PS, Att, Dif, AtS, DfS e Vel direttamente nel salvataggio, ignorando IV/EV. Il gioco le ricalcola se il Pokémon sale di livello, evolve o passa dal PC.',note_p:'Squadra: le statistiche (PS, Att…) non vengono ricalcolate. La natura cambia le statistiche: per aggiornarle deposita il Pokémon nel PC e ritiralo in gioco.',
 note_e:'Slot vuoto: Applica crea un nuovo Pokémon (usa la specie e l’esperienza qui sopra).',
 ok_hack:'✓ Presente nella hack: {0} (ID {1})',warn_id:'⚠ ID {0}: non è un fakemon della hack',pick:'Non ancora esatto: scegli dall’elenco',none:'✗ Non presente nella hack',
@@ -288,7 +316,7 @@ metloc:'Met location (optional)',ml_ph:'— Unchanged —',ml_tr:'In-game trade'
 species:'Species',sp_ph:'Type the name…',nick:'Nickname',item:'Item',exp:'Experience',lvl:'Level (party)',abil:'Ability',nature:'Nature',moves:'Moves',mv_ph:'Move',
 ivs:'IVs (HP, Atk, Def, SpA, SpD, Spe)',evs:'EVs (HP, Atk, Def, SpA, SpD, Spe)',apply:'Apply',del:'Delete',pwarn:'⚠ Party Pokémon: after editing it, before using it in game it is recommended to deposit it in the PC (then withdraw it) so the game recalculates its stats.',
 search_ph:'Search by name, ID or ability…',onlyfk:'Fakemon only',nob:'This game’s bag is not reliably mapped yet, so I’m not editing it for now.',add:'+ Add item',
-party:'Party',choose:'Choose file',lvb:'Level',ev_left:'EVs left:',hp_t:'Hidden Power type',cancel:'Cancel',pinfo:'Patch info',pdl:'Download patch',sel:'Select',sel_all:'All',sel_none:'None',move:'Move to box',all_types:'All types',moved:'Moved:',no_room:'Not enough room in the destination box',add_party:'+ Add to party',party_full:'Party full (6/6): delete a Pokémon to make room',note_n:'New party Pokémon: stats are provisional. Deposit it in the PC and withdraw it in game to recalculate them.',neutral:'neutral',
+party:'Party',choose:'Choose file',lvb:'Level',ev_left:'EVs left:',hp_t:'Hidden Power type',cancel:'Cancel',pinfo:'Patch info',pdl:'Download patch',sel:'Select',sel_all:'All',sel_none:'None',mk_sh:'✨ Shiny',mk_ns:'Non-shiny',sh_done:'Shiny: {0} changed, {1} already fine, {2} failed',move:'Move to box',all_types:'All types',moved:'Moved:',no_room:'Not enough room in the destination box',add_party:'+ Add to party',party_full:'Party full (6/6): delete a Pokémon to make room',note_n:'New party Pokémon: stats are provisional. Deposit it in the PC and withdraw it in game to recalculate them.',neutral:'neutral',
 cpy_m:'📋 Copy',cpy_n:'Copied {0} Pokémon to box {1}.',cpy:'📋 Copy to box',cpy_ok:'Copied to box {0}, slot {1}.',rst:'↩ Restore normal stats',rst_ok:'Stats restored (calculated from species, level, IVs, EVs and nature; HP full).',cheat:'Cheat: all stats 999 (party only)',cheat_h:'Deliberate option: writes 999 to HP, Atk, Def, SpA, SpD and Spe directly in the save, ignoring IVs/EVs. The game recalculates them when the Pokémon levels up, evolves or goes through the PC.',note_p:'Party: stats (HP, Atk…) are not recalculated. Nature changes the stats: to refresh them, deposit the Pokémon in the PC and withdraw it in game.',
 note_e:'Empty slot: Apply creates a new Pokémon (using the species and experience above).',
 ok_hack:'✓ Found in the hack: {0} (ID {1})',warn_id:'⚠ ID {0}: not a fakemon of the hack',pick:'Not an exact match yet: pick from the list',none:'✗ Not found in the hack',
@@ -400,7 +428,7 @@ function partyGrid(){const p=$('#pty');p.innerHTML='';let n=0;try{n=Math.min(6,c
  for(let i=0;i<=Math.min(n,5);i++){const s={p:1,i},b=document.createElement('button');let m=null,e=true;if(i<n){m=getM(s);e=empty(m)}
   if(e)b.textContent='+';else{const sp=spOf(m),ic=icon(sp);if(ic){const im=new Image();im.src=ic;b.append(im)}const q=document.createElement('span');q.textContent=nm('sp',sp).replace(/ #\d+$/,'')+(isEgg(m)?' 🥚':'')+(shM(m)?' ★':'');b.append(q);const ni=document.createElement('span');ni.textContent='#'+sp+' · Lv.'+m[84];ni.style.opacity='.6';b.append(ni);b.title='#'+sp+' '+q.textContent}
   if(SELP.has(i))b.classList.add('on');b.onclick=()=>{if(selOn){if(e)return;SELP.has(i)?SELP.delete(i):SELP.add(i);grid()}else{sel=s;show()}};p.append(b)}}
-function grid(){const g=$('#gr'),bb=+$('#bx').value,tf=$('#tf').value;g.innerHTML='';$('#form').hidden=true;$('#pwarn').hidden=true;$('#pwarn2').hidden=!PWD;sel=null;partyGrid();
+function grid(){bxSync();const g=$('#gr'),bb=+$('#bx').value,tf=$('#tf').value;g.innerHTML='';$('#form').hidden=true;$('#pwarn').hidden=true;$('#pwarn2').hidden=!PWD;sel=null;partyGrid();
  for(let i=0;i<30;i++){const s={p:0,b:bb,i},m=getM(s),e=empty(m),b=document.createElement('button');let ok=true;
   if(e)b.textContent='—';else{const sp=spOf(m),ic=icon(sp);if(ic){const im=new Image();im.src=ic;b.append(im)}const n=document.createElement('span');n.textContent=nm('sp',sp).replace(/ #\d+$/,'')+(isEgg(m)?' 🥚':'')+(shM(m)?' ★':'');b.append(n);const ni=document.createElement('span');ni.textContent='#'+sp;ni.style.opacity='.6';b.append(ni);b.title='#'+sp+' '+n.textContent;if(tf!==''&&!hasType(sp,+tf)){ok=false;b.classList.add('dim')}}
   if(SEL.has(i))b.classList.add('on');
@@ -594,6 +622,19 @@ $('#cpm').onclick=()=>{const db=+$('#mb').value;if(isNaN(db)||!(SEL.size+SELP.si
  const fr=[];for(let j=0;j<30&&fr.length<ms.length;j++)if(empty(getM({p:0,b:db,i:j})))fr.push(j);
  if(fr.length<ms.length)return alert(t('no_room'));
  ms.forEach((m,n)=>putM({p:0,b:db,i:fr[n]},m));const bn=$('#mb').options[$('#mb').selectedIndex].text;SEL.clear();SELP.clear();grid();$('#sc').textContent=t('cpy_n',ms.length,bn)};
+/* Rende shiny / non shiny i Pokémon selezionati (box + squadra), mantenendo natura, sesso e abilità. / Make the selected Pokémon (box + party) shiny or non-shiny, keeping nature, gender and ability. */
+function mkSh(want){const tg=[],cb=+$('#bx').value;[...SELP].sort((a,b)=>a-b).forEach(i=>tg.push({p:1,i}));[...SEL].sort((a,b)=>a-b).forEach(i=>tg.push({p:0,b:cb,i}));
+ if(!tg.length)return;let ok=0,same=0,bad=0;
+ tg.forEach(s=>{const m=getM(s);if(empty(m))return;const w=m.slice();X(w);const v=V(w),p=v.getUint32(0,true),ot=v.getUint32(4,true);
+  if(shOf(p,ot)==want){same++;return}
+  const nt=C.sg?((p%25)^(w[18]>>3)):p%25,q=shPid(p,nt,want,ot);
+  if(!q){bad++;return}
+  const so=[0,1,2,3].map(k=>32+(C.crypt?PERMS[p%24].indexOf(k):k)*12),td=w.slice();
+  v.setUint32(0,q,true);for(let k=0;k<4;k++)w.set(td.slice(so[k],so[k]+12),SO(w,k));
+  if(C.sg)w[18]=(w[18]&7)|(((q%25)^nt)<<3);
+  CK(w);X(w);putM(s,w);ok++;if(s.p)PWD=true});
+ grid();const r=t('sh_done',ok,same,bad);$('#sc').textContent=r;if(ok)msg(r)}
+$('#shy').onclick=()=>mkSh(true);$('#nsh').onclick=()=>mkSh(false);
 $('#rel').onclick=()=>{if(!SEL.size)return;const cb=+$('#bx').value,ids=[...SEL],eg=ids.filter(i=>{const m=getM({p:0,b:cb,i});return !empty(m)&&isEgg(m)}).length;
  if(!confirm(eg?t('confirm_rel_e',ids.length,eg):t('confirm_rel',ids.length)))return;
  ids.forEach(i=>pcw(bpos(cb,i),new Uint8Array(BS())));const n=ids.length;SEL.clear();grid();$('#sc').textContent=t('released')+' '+n;msg(t('released')+' '+n)};
@@ -970,7 +1011,7 @@ function kcell(m,on,fn){const b=document.createElement('button');if(!m){b.textCo
 function kRender(){if(!buf)return;kInfo();const sb=+$('#kbs').value||0,bb=+$('#kbb').value||0,B=BK(),g1=$('#kgs'),g2=$('#kgb');g1.innerHTML='';g2.innerHTML='';
  for(let i=0;i<30;i++){const m=getM({p:0,b:sb,i});g1.append(kcell(empty(m)?null:m,KS.has(i),()=>{KS.has(i)?KS.delete(i):KS.add(i);KF={s:'s',b:sb,i};kRender()}))}
  for(let i=0;i<30;i++){const d=B[bb*30+i];g2.append(kcell(d?ub64(d):null,KT.has(i),()=>{KT.has(i)?KT.delete(i):KT.add(i);KF={s:'b',b:bb,i};kRender()}))}
- [...$('#kbb').options].forEach((o,b)=>{let c=0;for(let i=0;i<30;i++)if(B[b*30+i])c++;o.textContent=t('k_box')+' '+(b+1)+' ('+c+'/30)'});
+ [...$('#kbb').options].forEach((o,b)=>{let c=0;for(let i=0;i<30;i++)if(B[b*30+i])c++;o.textContent=t('k_box')+' '+(b+1)+(kbn(b)?': '+kbn(b):'')+' ('+c+'/30)'});
  $('#kdep').textContent=t('k_dep')+' ▶ ('+KS.size+')';$('#kwd').textContent='◀ '+t('k_wd')+' ('+KT.size+')';$('#kdep').disabled=!KS.size;$('#kwd').disabled=!KT.size;$('#krel').disabled=!KT.size}
 let KF=null;const esc=x=>String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function kInfo(){const c=$('#kinf');let m=null;if(KF){if(KF.s=='s'&&KF.b==(+$('#kbs').value||0)){const x=getM({p:0,b:KF.b,i:KF.i});if(!empty(x))m=x}
@@ -985,6 +1026,16 @@ function kInfo(){const c=$('#kinf');let m=null;if(KF){if(KF.s=='s'&&KF.b==(+$('#
  `<div style="margin-top:8px"><b>${t('moves')}</b>: ${mv.length?mv.map(esc).join(' · '):'—'}</div><table style="width:100%;margin-top:8px;border-collapse:collapse"><tr><th></th>${sn.map(x=>`<th>${x}</th>`).join('')}</tr>${row(t('k_iv'),j=>(iw>>5*j)&31)}${row(t('k_ev'),j=>w[e+j])}</table>`;c.hidden=false}
 const kmsg=m=>$('#kmsg').textContent=m;
 function kInit(){KS.clear();KT.clear();$('#kbs').innerHTML=$('#bx').innerHTML;$('#kbb').innerHTML=[...Array(100).keys()].map(b=>`<option value="${b}"></option>`).join('');kmsg('');kRender();kStatus()}
+/* Rinomina box (salvataggio: max 8 caratteri; PokéBanca: max 16) / Rename boxes (save: max 8 chars; PokéBank: max 16) */
+const bxN=()=>C.bn?C.nb:14,bxA=b=>(C.bn||33604)+b*9,kbn=b=>((BANK.nm||{})[curG]||{})[b]||'';
+function bxTxt(b,n){['#bx','#mb','#cpb','#kbs'].forEach(q=>{const o=$(q).options[b];if(o)o.textContent='Box '+(b+1)+(n?': '+n:'')})}
+function bxSync(){const b=+$('#bx').value||0;$('#bxe').hidden=b>=bxN();$('#bxed').hidden=true}
+function mkEd(p,sel,max,get,set){const D=$('#'+p+'ed'),I=$('#'+p+'i'),cl=()=>{D.hidden=true};I.maxLength=max;
+ $('#'+p+'e').onclick=()=>{I.value=get(+$(sel).value);D.hidden=false;I.focus();I.select()};$('#'+p+'no').onclick=cl;
+ const ok=()=>{let v=I.value.trim().slice(0,max);if(p=='bx')v=[...v].filter(c=>E[c]!==undefined).join('');set(+$(sel).value,v);cl()};
+ $('#'+p+'ok').onclick=ok;I.onkeydown=e=>{if(e.key=='Enter')ok();else if(e.key=='Escape')cl()}}
+mkEd('bx','#bx',8,b=>rs(pcr(bxA(b),9),0,9),(b,v)=>{const a=new Uint8Array(9);ws(a,0,9,v);pcw(bxA(b),a);bxTxt(b,v);SD=true;msg(t('upd'))});
+mkEd('kb','#kbb',16,kbn,(b,v)=>{BANK.nm=BANK.nm||{};const m=BANK.nm[curG]=BANK.nm[curG]||{};if(v)m[b]=v;else delete m[b];kRender();kSave();kmsg(t('upd'))});
 $('#kbs').onchange=()=>{KS.clear();kRender()};$('#kbb').onchange=()=>{KT.clear();kRender()};
 const kgo=d=>{const s=$('#kbb');s.value=Math.max(0,Math.min(99,+s.value+d));KT.clear();kRender()};$('#kpv').onclick=()=>kgo(-1);$('#knx').onclick=()=>kgo(1);
 $('#kdep').onclick=()=>{if(!KS.size)return;const sb=+$('#kbs').value,bb=+$('#kbb').value,B=BK(),fr=[];for(let j=0;j<30&&fr.length<KS.size;j++)if(!B[bb*30+j])fr.push(j);
