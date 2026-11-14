@@ -423,7 +423,7 @@ function icon(sp){const d=ICD[curG];if(!d||!d.px)return null;if(d.c[sp]!==undefi
  const pl=d.pal[d.pi[sp]||0].map(c=>[(c&31)*8,(c>>5&31)*8,(c>>10&31)*8]),cv=document.createElement('canvas');cv.width=cv.height=32;const cx=cv.getContext('2d'),im=cx.createImageData(32,32);
  for(let tl=0;tl<16;tl++)for(let y=0;y<8;y++)for(let b=0;b<4;b++){const v=x[o+tl*32+y*4+b];for(let k=0;k<2;k++){const n=k?v>>4:v&15;if(!n)continue;const q=((((tl>>2)*8+y)*32)+(tl%4)*8+b*2+k)*4,c=pl[n];im.data[q]=c[0];im.data[q+1]=c[1];im.data[q+2]=c[2];im.data[q+3]=255}}
  cx.putImageData(im,0,0);return d.c[sp]=cv.toDataURL()}
-const shOf=(p,o)=>(((o&65535)^(o>>>16)^(p&65535)^(p>>>16))&65535)<8,shM=m=>{const v=V(m);return shOf(v.getUint32(0,true),v.getUint32(4,true))};
+const SHT=()=>C.er?8:C.sg?256:8,NSH=()=>C.er?16:C.sg?4096:16,shV=(p,o)=>((o&65535)^(o>>>16)^(p&65535)^(p>>>16))&65535,shCls=v=>v<SHT()?1:v<NSH()?2:0,shDone=(p,o,want)=>want?shV(p,o)<SHT():shV(p,o)>=NSH(),shOf=(p,o)=>(((o&65535)^(o>>>16)^(p&65535)^(p>>>16))&65535)<SHT(),shM=m=>{const v=V(m);return shOf(v.getUint32(0,true),v.getUint32(4,true))};
 const isEgg=m=>{const w=m.slice(0,80);X(w);return(V(w).getUint32(SO(w,3)+4,true)>>>30&1)==1};
 function partyGrid(){const p=$('#pty');p.innerHTML='';let n=0;try{n=Math.min(6,cnt())}catch(e){n=-1}
  $('#ptl').hidden=p.hidden=n<0;if(n<0)return;
@@ -467,9 +467,9 @@ const pidS=v=>v.trim()&&v.trim()==nm('sp',cur0)?cur0:pid('sp',v);
 function shPid(p,nt,want,ot){const x=((ot&65535)^(ot>>>16))&65535,lo0=p&65535,hi0=p>>>16,ok=pp=>pp&&(C.sg||pp%25==nt);
  for(let j=0;j<256;j++){const lo=(lo0&255)|((((lo0>>8)+j)&255)<<8);
   if(want){for(let t=0;t<8;t++){const h=(x^lo^t)&65535,pp=((h<<16)|lo)>>>0;if(ok(pp))return pp}}
-  else for(let i=1;i<65536;i++){const h=(hi0+i)&65535,pp=((h<<16)|lo)>>>0;if(((x^lo^h)&65535)>=8&&ok(pp))return pp}}}
-function natPid(p,nt){const lo=p&65535,ot=V(w0).getUint32(4,true),ox=((ot&65535)^(ot>>>16)^lo)&65535,sh=(ox^(p>>>16))<8;
- for(const strict of[1,0])for(let i=1;i<=65536;i++){const h=((p>>>16)+i)&65535,pp=((h<<16)|lo)>>>0;if(pp&&pp%25==nt&&(!strict||((ox^h)<8)==sh))return[pp,strict]}}
+  else for(let i=1;i<65536;i++){const h=(hi0+i)&65535,pp=((h<<16)|lo)>>>0;if(((x^lo^h)&65535)>=NSH()&&ok(pp))return pp}}}
+function natPid(p,nt){const lo=p&65535,ot=V(w0).getUint32(4,true),ox=((ot&65535)^(ot>>>16)^lo)&65535,sh=shCls(ox^(p>>>16));
+ for(const strict of[1,0])for(let i=1;i<=65536;i++){const h=((p>>>16)+i)&65535,pp=((h<<16)|lo)>>>0;if(pp&&pp%25==nt&&(!strict||shCls(ox^h)==sh))return[pp,strict]}}
 let w0;
 function sug(c){const q=$('#fsp').value.trim().toLowerCase(),b=$('#sug'),ok=pidS($('#fsp').value);b.innerHTML='';
  const m=q&&!c?Object.values(D.sp).filter(n=>n.toLowerCase().includes(q)):[];
@@ -628,7 +628,7 @@ $('#cpm').onclick=()=>{const db=+$('#mb').value;if(isNaN(db)||!(SEL.size+SELP.si
 function mkSh(want){const tg=[],cb=+$('#bx').value;[...SELP].sort((a,b)=>a-b).forEach(i=>tg.push({p:1,i}));[...SEL].sort((a,b)=>a-b).forEach(i=>tg.push({p:0,b:cb,i}));
  if(!tg.length)return;let ok=0,same=0,bad=0;
  tg.forEach(s=>{const m=getM(s);if(empty(m))return;const w=m.slice();X(w);const v=V(w),p=v.getUint32(0,true),ot=v.getUint32(4,true);
-  if(shOf(p,ot)==want){same++;return}
+  if(shDone(p,ot,want)){same++;return}
   const nt=C.sg?((p%25)^(w[18]>>3)):p%25,q=shPid(p,nt,want,ot);
   if(!q){bad++;return}
   const so=[0,1,2,3].map(k=>32+(C.crypt?PERMS[p%24].indexOf(k):k)*12),td=w.slice();
@@ -683,9 +683,9 @@ const gOf=(sp,p)=>{const r=ratio(sp);return r==255?'n':r==254?'f':r==0?'m':r>(p&
 function gdOpts(){const s=$('#fgd');if(!s||!D||!curG)return;const sp=pidS($('#fsp').value),r=isNaN(sp)?127:ratio(sp),k=s.value,o=r==255?['n']:r==254?['f']:r==0?['m']:['m','f'];
  s.innerHTML=o.map(x=>`<option value="${x}">${t('g_'+x)}</option>`).join('');s.disabled=o.length<2;s.value=o.includes(k)?k:o[0]}
 /* Nuovo PID col sesso voluto: cambia il byte basso, poi cerca la parte alta che mantiene natura e (se possibile) shiny. Restituisce [PID, shinyConservato]. */
-function gPid(p,nt,f,r,ot){const lo0=p&65535,hi0=p>>>16,x=((ot&65535)^(ot>>>16))&65535,sh=((x^lo0^hi0)&65535)<8,b0=p&255;
+function gPid(p,nt,f,r,ot){const lo0=p&65535,hi0=p>>>16,x=((ot&65535)^(ot>>>16))&65535,sh=shCls((x^lo0^hi0)&65535),b0=p&255;
  const bs=[...Array(256).keys()].filter(b=>(r>b)==f).sort((a,b)=>Math.abs(a-b0)-Math.abs(b-b0));
- for(const strict of[1,0])for(const b of bs){const lo=(lo0&65280)|b;for(let i=0;i<65536;i++){const h=(hi0+i)&65535,pp=((h<<16)|lo)>>>0;if(pp&&(C.sg||pp%25==nt)&&(!strict||(((x^lo^h)&65535)<8)==sh))return[pp,strict]}}}
+ for(const strict of[1,0])for(const b of bs){const lo=(lo0&65280)|b;for(let i=0;i<65536;i++){const h=(hi0+i)&65535,pp=((h<<16)|lo)>>>0;if(pp&&(C.sg||pp%25==nt)&&(!strict||shCls((x^lo^h)&65535)==sh))return[pp,strict]}}}
 function lkm(ty){const k=curG+LG+ty;if(LKC[k])return LKC[k];const m={},add=o=>o&&Object.entries(o).forEach(([i,n])=>{const z=nz(String(n).replace(/ #\d+$/,''));if(z&&m[z]===undefined)m[z]=+i}),g=GAMES[curG];
  add(ty=='sp'?D.spAll:D[ty]);add(ty=='sp'?g.spAll:g[ty]);add(ty=='sp'?SPEN[curG]:ty=='mv'?MVEN[curG]&&Object.fromEntries(MVEN[curG].map((n,i)=>[i+1,n])):ITEN[curG]);return LKC[k]=m}
 function impParse(x){const L=x.split('\n').map(l=>l.trim()).filter(Boolean),r={mv:[],ev:{},iv:{}};let h=L.shift()||'',it=null;
@@ -1020,7 +1020,7 @@ function kInfo(){const c=$('#kinf');let m=null;if(KF){if(KF.s=='s'&&KF.b==(+$('#
  else if(KF.s=='b'&&KF.b==(+$('#kbb').value||0)){const d=BK()[KF.b*30+KF.i];if(d)m=ub64(d)}}
  if(!m){c.hidden=true;return}
  const w=m.slice(0,80);X(w);const v=V(w),g=SO(w,0),a=SO(w,1),e=SO(w,2),mm=SO(w,3),mm_=mm,iw=v.getUint32(mm+4,true),sp=v.getUint16(g,true),it=v.getUint16(g+2,true),xp_=v.getUint32(g+4,true),pv=v.getUint32(0,true),ot=v.getUint32(4,true);
- const lv=lvlFor((GRD[curG]||[])[sp]||0,xp_),sh=(((ot&65535)^(ot>>>16)^(pv&65535)^(pv>>>16))&65535)<8,ab=ABD[curG],nn=ab&&(ab.n[LG]||ab.n),al=ab&&ab.sp[sp*2]!==undefined?abSl(ab,sp):null,sl=abNumW(w,iw);
+ const lv=lvlFor((GRD[curG]||[])[sp]||0,xp_),sh=(((ot&65535)^(ot>>>16)^(pv&65535)^(pv>>>16))&65535)<SHT(),ab=ABD[curG],nn=ab&&(ab.n[LG]||ab.n),al=ab&&ab.sp[sp*2]!==undefined?abSl(ab,sp):null,sl=abNumW(w,iw);
  const abn=(al&&nn&&(nn[al[sl]]||(sl&&nn[al[0]])))||t('k_noab'),name=nm('sp',sp).replace(/ #\d+$/,''),nk=rs(m,8,10),u=pic(sp,sh),sn=[t('k_hp'),...[0,1,3,4,2].map(i=>STD[LG][i])];
  const mv=[0,1,2,3].map(j=>v.getUint16(a+j*2,true)).filter(Boolean).map(id=>nm('mv',id));
  const row=(l,f)=>`<tr><th style="text-align:left">${l}</th>${sn.map((_,j)=>`<td style="text-align:center">${f(UO[j])}</td>`).join('')}</tr>`;
@@ -1091,7 +1091,7 @@ $('#krel').onclick=()=>{if(!KT.size)return;const bb=+$('#kbb').value,B=BK(),ids=
 function kMkSh(want,bank){const sb=+$('#kbs').value||0,bb=+$('#kbb').value||0,B=BK(),set=bank?KT:KS;if(!set.size)return;let ok=0,same=0,bad=0;
  [...set].sort((a,b)=>a-b).forEach(i=>{let m;if(bank){const d=B[bb*30+i];if(!d)return;m=ub64(d)}else{m=getM({p:0,b:sb,i});if(empty(m))return}
   const w=m.slice();X(w);const v=V(w),p=v.getUint32(0,true),ot=v.getUint32(4,true);
-  if(shOf(p,ot)==want){same++;return}
+  if(shDone(p,ot,want)){same++;return}
   const nt=C.sg?((p%25)^(w[18]>>3)):p%25,q=shPid(p,nt,want,ot);
   if(!q){bad++;return}
   const so=[0,1,2,3].map(k=>32+(C.crypt?PERMS[p%24].indexOf(k):k)*12),td=w.slice();
