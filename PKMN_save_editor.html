@@ -970,7 +970,7 @@ function gameSrc(src,k){let o=src.split('\n').filter(l=>{const m=/^\/\*@game:(\w
  const s=o.indexOf(KO),e=o.indexOf(KC,s);if(s<0||e<0)throw new Error(t('k_bad'));const bk={rev:(BANK&&BANK.rev)|0,g:{}};if(BANK&&BANK.g&&BANK.g[k])bk.g[k]=BANK.g[k];if(BANK&&BANK.names&&BANK.names[k])bk.names={[k]:BANK.names[k]};if(BANK&&BANK.covers&&BANK.covers[k])bk.covers={[k]:BANK.covers[k]};
  return o.slice(0,s+KO.length)+JSON.stringify(bk).replace(/</g,'\\u003c')+o.slice(e)}
 async function dlGame(k){try{const src=await ksrc();if(!src.includes(KO))return alert(t('k_bad'));const out=gameSrc(src,k),a=document.createElement('a');
- a.href=URL.createObjectURL(new Blob([out],{type:'text/html'}));a.download='pokemon_save_editor_'+k+'.html';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)}catch(e){if(e.message!='-')alert(t('k_err',e.message))}}
+ a.href=URL.createObjectURL(new Blob([out],{type:'text/html'}));a.download=(gameName(k).replace(/[\\\/:*?"<>|\x00-\x1f]/g,'').replace(/\s+/g,' ').trim().replace(/[. ]+$/,'')||'pokemon_save_editor_'+k)+'.html';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)}catch(e){if(e.message!='-')alert(t('k_err',e.message))}}
 $('#sdlh').onclick=()=>$('#kdlh').click();$('#sdlk').hidden=!window.showOpenFilePicker;$('#sdlk').onclick=()=>$('#klink').click();
 // ---- riconoscimento del gioco dal file di salvataggio / game detection from the save file
 // Per ogni gioco prova la sua struttura (settori, party, box PC) e conta i Pokémon plausibili (specie del gioco, checksum se cifrato). / For every game it tries its layout (sectors, party, PC boxes) and counts plausible Pokémon (game species, checksum if encrypted).
